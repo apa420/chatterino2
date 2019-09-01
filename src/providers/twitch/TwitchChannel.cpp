@@ -405,7 +405,10 @@ void TwitchChannel::setLive(bool newLiveStatus)
                 if (getApp()->notifications->isChannelNotified(
                         this->getName(), Platform::Twitch))
                 {
-                    getApp()->toasts->sendToastMessage(this->getName());
+                    if (getSettings()->notificationToast)
+                    {
+                        getApp()->toasts->sendToastMessage(this->getName());
+                    }
                     if (getSettings()->notificationPlaySound)
                     {
                         getApp()->notifications->playSound();
