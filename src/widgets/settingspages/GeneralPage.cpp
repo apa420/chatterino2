@@ -540,6 +540,7 @@ void GeneralPage::initLayout(SettingsLayout &layout)
                        s.enableExperimentalIrc);
     layout.addCheckbox("Show unhandled IRC messages",
                        s.showUnhandledIrcMessages);
+    layout.addCheckbox("Color cycle when typing a message", s.colorCycle);
 
     layout.addTitle("Cache");
     layout.addDescription(

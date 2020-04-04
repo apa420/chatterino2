@@ -105,6 +105,7 @@ public:
                                           -0.5f};
     // BoolSetting useCustomWindowFrame = {"/appearance/useCustomWindowFrame",
     // false};
+    BoolSetting colorCycle = {"/appearance/colorCycle", false};
 
     // Badges
     BoolSetting showBadgesGlobalAuthority = {
