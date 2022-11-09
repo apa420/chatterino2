@@ -109,21 +109,35 @@ void AB_THEME_CLASS::actuallyUpdate(double hue, double multiplier)
         {
             this->tabs.regular = {
                 QColor("#aaa"),
-                {QColor("#252525"), QColor("#252525"), QColor("#252525")},
+                //{QColor("#252525"), QColor("#252525"), QColor("#252525")},
+                {QColor("#0b0b0b"), QColor("#0b0b0b"), QColor("#0b0b0b")},
                 {QColor("#444"), QColor("#444"), QColor("#444")}};
             this->tabs.newMessage = {
                 fg,
-                {QColor("#252525"), QColor("#252525"), QColor("#252525")},
+                //{QColor("#252525"), QColor("#252525"), QColor("#252525")},
+                {QColor("#0b0b0b"), QColor("#0b0b0b"), QColor("#0b0b0b")},
                 {QColor("#888"), QColor("#888"), QColor("#888")}};
             this->tabs.highlighted = {
                 fg,
-                {QColor("#252525"), QColor("#252525"), QColor("#252525")},
+                //{QColor("#252525"), QColor("#252525"), QColor("#252525")},
+                {QColor("#0b0b0b"), QColor("#0b0b0b"), QColor("#0b0b0b")},
                 {highlighted, highlighted, highlighted}};
 
-            this->tabs.selected = {
-                QColor("#fff"),
-                {QColor("#555555"), QColor("#555555"), QColor("#555555")},
-                {this->accent, this->accent, this->accent}};
+            if (this->themeName.getValue() == "Black")
+            {
+                this->tabs.selected = {
+                    QColor("#fff"),
+                    {QColor("#555555"), QColor("#000000"), QColor("#000000")},
+                    //{QColor("555555"), QColor("#555555"), QColor("#555555")},
+                    {this->accent, this->accent, this->accent}};
+            }
+            else
+            {
+                this->tabs.selected = {
+                    QColor("#fff"),
+                    {QColor("#555555"), QColor("#555555"), QColor("#555555")},
+                    {this->accent, this->accent, this->accent}};
+            }
         }
 
         // scrollbar
