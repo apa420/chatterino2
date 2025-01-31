@@ -922,6 +922,92 @@ void GeneralPage::initLayout(GeneralPageView &layout)
         layout.addLayout(box);
     }
 
+    layout.addTitle("Import settings");
+    layout.addDescription("Export or import user settings");
+    layout.addSubtitle("Settings");
+    layout.addDescription("Almost all settings");
+    {
+        auto *box = new QHBoxLayout;
+
+        box->addWidget(
+            layout.makeButton("Import Settings", [this](const auto &) mutable {
+                const auto settingsPath =
+                    getApp()->getPaths().settingsDirectory;
+                const auto filter = QString("*settings*");
+                const auto caption = QString("Load Settings backup file");
+                auto *settingsFile = new QString(QFileDialog::getOpenFileName(
+                    this, caption, settingsPath, filter));
+            }));
+
+        box->addWidget(
+            layout.makeButton("Export Settings", [this](const auto &) mutable {
+                const auto settingsPath =
+                    getApp()->getPaths().settingsDirectory;
+                const auto filter = QString("*settings*");
+                const auto caption = QString("Load Settings backup file");
+                auto *settingsFile = new QString(QFileDialog::getOpenFileName(
+                    this, caption, settingsPath, filter));
+            }));
+        box->addStretch(1);
+        layout.addLayout(box);
+    }
+
+    layout.addSubtitle("Window layout");
+    layout.addDescription("Layout of all the tabs and splits");
+    {
+        auto *box = new QHBoxLayout;
+
+        box->addWidget(
+            layout.makeButton("Import Layout", [this](const auto &) mutable {
+                const auto settingsPath =
+                    getApp()->getPaths().settingsDirectory;
+                const auto filter = QString("*layout*");
+                const auto caption = QString("Load Layout backup file");
+                auto *layoutFile = new QString(QFileDialog::getOpenFileName(
+                    this, caption, settingsPath, filter));
+            }));
+
+        box->addWidget(
+            layout.makeButton("Export Layout", [this](const auto &) mutable {
+                const auto settingsPath =
+                    getApp()->getPaths().settingsDirectory;
+                const auto filter = QString("*layout*");
+                const auto caption = QString("Load Layout backup file");
+                auto *layoutFile = new QString(QFileDialog::getOpenFileName(
+                    this, caption, settingsPath, filter));
+            }));
+        box->addStretch(1);
+        layout.addLayout(box);
+    }
+
+    layout.addSubtitle("Commands");
+    layout.addDescription("User commands set in the Commands setting page");
+    {
+        auto *box = new QHBoxLayout;
+
+        box->addWidget(
+            layout.makeButton("Import Commands", [this](const auto &) mutable {
+                const auto settingsPath =
+                    getApp()->getPaths().settingsDirectory;
+                const auto filter = QString("*commands*");
+                const auto caption = QString("Load settings backup file");
+                auto *commandsFile = new QString(QFileDialog::getOpenFileName(
+                    this, caption, settingsPath, filter));
+            }));
+
+        box->addWidget(
+            layout.makeButton("Export Commands", [this](const auto &) mutable {
+                const auto settingsPath =
+                    getApp()->getPaths().settingsDirectory;
+                const auto filter = QString("*commands*");
+                const auto caption = QString("Load Commands backup file");
+                auto *commandsFile = new QString(QFileDialog::getOpenFileName(
+                    this, caption, settingsPath, filter));
+            }));
+        box->addStretch(1);
+        layout.addLayout(box);
+    }
+
     layout.addTitle("Advanced");
 
     layout.addSubtitle("Chat title");
